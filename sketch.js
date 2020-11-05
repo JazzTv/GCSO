@@ -17,7 +17,7 @@ function setup()
 
 function draw() {
   background(200); 
-  var deformation = 0.5 * weight * speed/22509;
+  var deformation = 0.5 * weight * speed* speed/22509;
 
   textSize(20)
   text("Deformation " + deformation , 1000,50)
