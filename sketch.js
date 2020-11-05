@@ -16,24 +16,32 @@ function setup()
 }
 
 function draw() {
-  background("black"); 
+  background(200); 
+  var deformation = 0.5 * weight * speed/22509;
+
+  textSize(20)
+  text("Deformation " + deformation , 1000,50)
   
   if (wall.x - car.x < (car.width + wall.width)/2) 
   {
     car.velocityX = 0;
-    var deformation = 0.5 * weight * speed/22509;
-    if (deformation > 180)
-    {
-      car.shapeColor = color(255,0,0);
-    } 
-    if (deformation < 180 && deformation > 100)
-    {
-      car.shapeColor = color(230,230,0);
-    } 
-    if (deformation < 100) 
+   
+   
+    if (deformation < 80) 
     {
       car.shapeColor = color(0,255,0);
     }
+    else if (deformation >= 80 && deformation < 180)
+    {
+      car.shapeColor = color(230,230,0);
+    } 
+    else
+    {
+      car.shapeColor = color(255,230,0);
+    }
+
+     car.x = wall.x - (car.width + wall.width)/2
+
   }
   drawSprites();
 }
